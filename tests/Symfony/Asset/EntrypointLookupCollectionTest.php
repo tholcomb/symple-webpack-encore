@@ -10,7 +10,8 @@
 namespace Symfony\WebpackEncoreBundle\Tests\Asset;
 
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\DependencyInjection\ServiceLocator;
+use Pimple\Container;
+use Pimple\Psr11\ServiceLocator;
 use Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollection;
 use Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface;
 
@@ -21,7 +22,7 @@ class EntrypointLookupCollectionTest extends TestCase
         $this->expectException(\Symfony\WebpackEncoreBundle\Exception\UndefinedBuildException::class);
         $this->expectExceptionMessage('The build "something" is not configured');
 
-        $collection = new EntrypointLookupCollection(new ServiceLocator([]));
+        $collection = new EntrypointLookupCollection(new ServiceLocator(new Container(), []));
         $collection->getEntrypointLookup('something');
     }
 
@@ -30,14 +31,15 @@ class EntrypointLookupCollectionTest extends TestCase
         $this->expectException(\Symfony\WebpackEncoreBundle\Exception\UndefinedBuildException::class);
         $this->expectExceptionMessage('There is no default build configured: please pass an argument to getEntrypointLookup().');
 
-        $collection = new EntrypointLookupCollection(new ServiceLocator([]));
+        $collection = new EntrypointLookupCollection(new ServiceLocator(new Container(), []));
         $collection->getEntrypointLookup();
     }
 
     public function testDefaultBuildIsReturned()
     {
         $lookup = $this->createMock(EntrypointLookupInterface::class);
-        $collection = new EntrypointLookupCollection(new ServiceLocator(['the_default' => function () use ($lookup) { return $lookup; }]), 'the_default');
+        $name = 'the_default';
+        $collection = new EntrypointLookupCollection(new ServiceLocator(new Container([$name => function () use ($lookup) { return $lookup; }]), [$name]), $name);
 
         $this->assertSame($lookup, $collection->getEntrypointLookup());
     }
