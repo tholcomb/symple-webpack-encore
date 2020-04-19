@@ -273,7 +273,7 @@ if (method_exists(AbstractWebpackEncoreIntegrationTestKernel::class, 'configureR
     }
 } else {
     class WebpackEncoreIntegrationTestKernel extends AbstractWebpackEncoreIntegrationTestKernel {
-        protected function configureRoutes(RouteCollectionBuilder $routes)
+        protected function configureRoutes($routes)
         {
             $routes->add('/foo', 'kernel:'.(parent::VERSION_ID >= 40100 ? ':' : '').'renderFoo');
         }
