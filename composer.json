@@ -11,12 +11,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Symfony\\WebpackEncoreBundle\\": "src"
+            "Symfony\\WebpackEncoreBundle\\": "src/Symfony/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Symfony\\WebpackEncoreBundle\\Tests\\": "tests/"
+            "Symfony\\WebpackEncoreBundle\\Tests\\": "tests/Symfony/"
         }
     },
     "minimum-stability": "dev",

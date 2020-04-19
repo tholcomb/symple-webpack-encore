@@ -184,9 +184,9 @@ abstract class AbstractWebpackEncoreIntegrationTestKernel extends Kernel
 
     private $enableAssets;
     public $strictMode = true;
-    public $outputPath = __DIR__.'/fixtures/build';
+    public $outputPath = __DIR__ . '/fixtures/build';
     public $builds = [
-        'different_build' => __DIR__.'/fixtures/different_build',
+        'different_build' => __DIR__ . '/fixtures/different_build',
     ];
 
     public function __construct(bool $enableAssets)
@@ -215,7 +215,7 @@ abstract class AbstractWebpackEncoreIntegrationTestKernel extends Kernel
 
         $container->loadFromExtension('twig', [
             'paths' => [
-                __DIR__.'/fixtures' => 'integration_test',
+                __DIR__ . '/fixtures' => 'integration_test',
             ],
             'strict_variables' => true,
             'exception_controller' => null,
