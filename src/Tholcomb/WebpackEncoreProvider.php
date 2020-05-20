@@ -1,7 +1,9 @@
 <?php
 /**
- * This file is part of the Symple PHP Framework
- * (c) Tyler Holcomb <tyler@tholcomb.com>
+ * This file is part of the Symple Framework
+ *
+ * Copyright (c) Tyler Holcomb <tyler@tholcomb.com>
+ *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
@@ -25,16 +27,15 @@ use Symfony\WebpackEncoreBundle\Asset\TagRenderer;
 use Symfony\WebpackEncoreBundle\EventListener\ExceptionListener;
 use Symfony\WebpackEncoreBundle\EventListener\PreLoadAssetsEventListener;
 use Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension;
-use Tholcomb\Rw\AbstractProvider;
-use Tholcomb\Rw\Http\HttpProvider;
-use Tholcomb\Rw\Twig\TwigProvider;
+use Tholcomb\Symple\Core\AbstractProvider;
+use Tholcomb\Symple\Http\HttpProvider;
+use Tholcomb\Symple\Twig\TwigProvider;
 use Twig\Environment;
-use function Tholcomb\Rw\isset_and_true;
+use function Tholcomb\Symple\Core\isset_and_true;
 
 class WebpackEncoreProvider extends AbstractProvider
 {
     protected const NAME = 'webpack';
-    protected const LOG_DIR = null;
 
     public function register(Container $c)
     {

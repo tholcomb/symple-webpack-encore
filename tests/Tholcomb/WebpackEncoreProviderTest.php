@@ -1,7 +1,9 @@
 <?php
 /**
- * This file is part of the Symple PHP Framework
- * (c) Tyler Holcomb <tyler@tholcomb.com>
+ * This file is part of the Symple Framework
+ *
+ * Copyright (c) Tyler Holcomb <tyler@tholcomb.com>
+ *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
@@ -10,9 +12,9 @@ namespace Tholcomb\Symple\WebpackEncore\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Pimple\Container;
-use Tholcomb\Rw\Http\HttpProvider;
-use Tholcomb\Rw\Twig\TwigProvider;
-use Tholcomb\Rw\UnregisteredProviderException;
+use Tholcomb\Symple\Http\HttpProvider;
+use Tholcomb\Symple\Twig\TwigProvider;
+use Tholcomb\Symple\Core\UnregisteredProviderException;
 use Tholcomb\Symple\WebpackEncore\WebpackEncoreProvider;
 
 class WebpackEncoreProviderTest extends TestCase

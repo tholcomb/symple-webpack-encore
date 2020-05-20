@@ -1,9 +1,11 @@
 <?php
 /**
  * This file contains portions of IntegrationTest.php from the Symfony WebpackEncoreBundle package.
- * This file is part of the Symple PHP Framework
  * (c) Fabien Potencier <fabien@symfony.com>
- * (c) Tyler Holcomb <tyler@tholcomb.com>
+ *
+ * This file is part of the Symple Framework
+ * Copyright (c) Tyler Holcomb <tyler@tholcomb.com>
+ *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
@@ -16,8 +18,9 @@ use Pimple\Psr11\ServiceLocator;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\WebpackEncoreBundle\Asset\TagRenderer;
-use Tholcomb\Rw\Http\HttpProvider;
-use Tholcomb\Rw\Twig\TwigProvider;
+use Tholcomb\Symple\Http\HttpProvider;
+use Tholcomb\Symple\Logger\LoggerProvider;
+use Tholcomb\Symple\Twig\TwigProvider;
 use Tholcomb\Symple\WebpackEncore\WebpackEncoreProvider;
 
 class IntegrationTest extends TestCase
@@ -25,6 +28,7 @@ class IntegrationTest extends TestCase
     private function getPimple(): PimpleContainer
     {
         $c = new PimpleContainer();
+        $c->register(new LoggerProvider(), ['logger.path' => '/dev/null']);
         $c->register(new HttpProvider());
         $c->register(new TwigProvider());
         $c->register(new WebpackEncoreProvider());
