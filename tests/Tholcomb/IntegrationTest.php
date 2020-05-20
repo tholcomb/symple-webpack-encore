@@ -141,6 +141,7 @@ class IntegrationTest extends TestCase
     public function testPreload()
     {
         $c = $this->getPimple();
+        $c[HttpProvider::KEY_REQUEST] = function () { return Request::create('/foo'); };
         $kernel = HttpProvider::getKernel($c);
         $container = $this->getContainer($c);
 
@@ -149,8 +150,7 @@ class IntegrationTest extends TestCase
         $tagRenderer->renderWebpackLinkTags('my_entry');
         $tagRenderer->renderWebpackScriptTags('my_entry');
 
-        $request = Request::create('/foo');
-        $response = $kernel->handle($request);
+        $response = $kernel->handle(HttpProvider::getRequest($c));
         $this->assertStringContainsString('</build/file1.js>; rel="preload"; as="script"', $response->headers->get('Link'));
     }
 }
