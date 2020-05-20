@@ -28,20 +28,20 @@
     "minimum-stability": "stable",
     "require": {
         "php": "^7.2",
-        "symfony/asset": "^3.4 || ^4.0 || ^5.0",
-        "symfony/config": "^3.4 || ^4.0 || ^5.0",
+        "symfony/asset": "^5.0",
+        "symfony/config": "^5.0",
         "pimple/pimple": "^3.2",
-        "symfony/http-kernel": "^3.4 || ^4.0 || ^5.0",
-        "symfony/service-contracts": "^1.0 || ^2.0",
+        "symfony/http-kernel": "^5.0",
+        "symfony/service-contracts": "^2.0",
         "tholcomb/symple-core": "^1.0",
         "tholcomb/symple-http": "^1.0",
         "tholcomb/symple-twig": "^1.0"
     },
     "require-dev": {
-        "symfony/cache": "^3.4 || ^4.0 || ^5.0",
-        "symfony/phpunit-bridge": "^4.3.5 || ^5.0",
-        "symfony/twig-bundle": "^3.4 || ^4.0 || ^5.0",
-        "symfony/web-link": "^3.4 || ^4.0 || ^5.0"
+        "symfony/cache": "^5.0",
+        "symfony/phpunit-bridge": "^5.0",
+        "symfony/twig-bundle": "^5.0",
+        "symfony/web-link": "^5.0"
     },
     "extra": {
         "thanks": {
